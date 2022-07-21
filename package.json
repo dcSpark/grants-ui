@@ -6,12 +6,6 @@
   "author": "dcSpark",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/main.d.ts",
-      "import": "./dist/main.mjs"
-    }
-  },
   "keywords": [],
   "files": [
     "dist"
