@@ -10,6 +10,15 @@ export default defineConfig({
       fileName: "lib",
       formats: ["es", "cjs"],
     },
+    rollupOptions: {
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+    },
   },
   plugins: [react()],
 });

@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import type { AirtableData } from "../../graphql-types";
 import IconLink from "../../assets/icon-link.svg";
 import ArrowUp from "../../assets/chevron-up.svg";
 import { Disclosure, Transition } from "@headlessui/react";
 import classNames from "classnames";
-import GrantProposalTab from "../GrantProposalTab";
+import GrantProposalTab from "../GrantProposalTab/GrantProposalTab";
 
 export type GrantProposalItemProps = AirtableData & {
   theme: "milkomeda" | "dcspark" | "flint";
@@ -90,10 +90,10 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
                   </div>
                 ) : null}
                 <div className="flex-1 space-y-1">
-                  {props.Funds_requested ? (
+                  {props.USD_equivalent ? (
                     <LabelWithValue
                       label="Amount Requested"
-                      value={`${props.Funds_requested ?? ""} in ${
+                      value={`${props.USD_equivalent ?? ""} in ${
                         props.Currency
                       } `}
                     />

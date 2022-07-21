@@ -1,1 +1,1 @@
-export { default as GrantProposalItem } from "./GrantProposalItem";
+export { default as GrantProposalItem } from "./GrantProposalItem/GrantsProposalItem";

@@ -1,11 +1,12 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
-import GrantProposalItem, { GrantProposalItemProps } from ".";
+import GrantProposalItem, {
+  GrantProposalItemProps,
+} from "./GrantsProposalItem";
 import { proposalData } from "../../data";
 
 export default {
-  title: "GrantsProposalItem",
+  title: "Components/GrantsProposalItem",
   component: GrantProposalItem,
   argTypes: {
     Status: {

@@ -1,3 +1,4 @@
+import React from "react";
 import { Tab } from "@headlessui/react";
 import classNames from "classnames";
 import { Maybe } from "../../graphql-types";
