@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "UI component library for grant proposal",
   "author": "dcSpark",
+  "main": "dist/lib.js",
   "keywords": [],
   "homepage": "https://github.com/dcSpark/grants-ui#readme",
   "repository": {
@@ -11,6 +12,7 @@
     "url": "git+https://github.com/dcSpark/grants-ui.git"
   },
   "scripts": {
+    "prepublishOnly": "npm run build",
     "dev": "vite",
     "format": "prettier --write \"**/*.+(js|ts|tsx|jsx|json|css|html)\"",
     "build": "tsc && vite build",
