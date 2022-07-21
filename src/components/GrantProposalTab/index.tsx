@@ -21,7 +21,7 @@ const GrantProposalTab = ({
   const isStatusDisplay = statusTitle || statusDescription || statusLink;
   return (
     <>
-      <div className="flex text-primaryText">
+      <div className="flex flex-col md:flex-row text-primaryText">
         <Tab.Group as="div" className="flex-1">
           <Tab.List className="flex space-x-1 border-b-[1px] border-b-borderTabs">
             {categories.map((category) => (
@@ -101,22 +101,20 @@ const GrantProposalTab = ({
             ) : null}
           </Tab.Panels>
         </Tab.Group>
-        <div className="pl-7 basis-[260px] min-w-[260px] text-sm mt-[26px] pt-4 border-t-[1px] border-t-borderTabs">
-          <dl>
-            {startDate ? (
-              <div>
-                <dt className="text-gray-500">Start Date</dt>
-                <dd>{startDate}</dd>
-              </div>
-            ) : null}
-            {endDate ? (
-              <div>
-                <dt className="text-gray-500">End Date</dt>
-                <dd>{endDate}</dd>
-              </div>
-            ) : null}
-          </dl>
-        </div>
+        <dl className="flex flex-row gap-8 text-sm mt-[26px] px-1 md:px-0 md:pt-4 md:border-t-[1px] md:border-t-borderTabs md:gap-0 md:flex-col md:pl-7 md:basis-[260px] md:min-w-[260px]">
+          {startDate ? (
+            <div>
+              <dt className="text-gray-500">Start Date</dt>
+              <dd>{startDate}</dd>
+            </div>
+          ) : null}
+          {endDate ? (
+            <div>
+              <dt className="text-gray-500">End Date</dt>
+              <dd>{endDate}</dd>
+            </div>
+          ) : null}
+        </dl>
       </div>
     </>
   );

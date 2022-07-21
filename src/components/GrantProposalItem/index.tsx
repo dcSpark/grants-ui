@@ -39,11 +39,17 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
         <>
           <Disclosure.Button
             className={classNames(
-              "flex min-h-[133px] w-full justify-between pr-4 rounded-r-2xl text-left",
+              "flex flex-col min-h-[133px] w-full justify-between pr-4 rounded-r-2xl text-left",
               "focus:outline-none focus-visible:ring focus-visible:ring-orange-600 focus-visible:ring-opacity-75",
+              "md:flex-row",
             )}
           >
-            <div className="relative pl-[60px] flex flex-1 space-x-4 justify-between py-4">
+            <div
+              className={classNames(
+                "relative w-full pl-12 flex flex-1 flex-col space-x-4 justify-between py-4",
+                "md:flex-row md:pl-[60px]",
+              )}
+            >
               <div
                 className={classNames(
                   "absolute left-0 top-[122px] w-[122px] h-[42px] transform rotate-[270deg] origin-top-left rounded-bl-[16px]",
@@ -53,7 +59,7 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
               >
                 {props.Status}
               </div>
-              <div className="flex flex-1">
+              <div className="flex flex-1 pb-8 md:py-0 border-b-gray-500 border-b-[1px] border-dashed md:border-b-0">
                 <div>
                   <span className="text-secondaryText text-sm">Proposal</span>
                   <h2 className="text-lg text-primaryText">
@@ -71,7 +77,12 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
                   </a>
                 </div>
               </div>
-              <div className="flex flex-1 space-x-4 border-l-gray-500 border-l-[1px] border-dashed pl-8 pr-4">
+              <div
+                className={classNames(
+                  "flex flex-1 space-x-4 py-4",
+                  "md:border-l-gray-500 md:border-l-[1px] md:border-dashed md:pr-4 md:pl-8 md:py-0",
+                )}
+              >
                 {props.Fund ? (
                   <div className="flex-1">
                     <LabelWithValue label="Challenge" value={props.Category} />
@@ -98,7 +109,7 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
               src={ArrowUp}
               alt=""
               className={classNames(
-                "transform rotate-180 h-5 w-5 self-center",
+                "transform rotate-180 h-5 w-5 self-center mb-2 md:mb-0",
                 open && "rotate-[360deg]",
               )}
             />
@@ -111,7 +122,7 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
-            <Disclosure.Panel className="border-t-[1px] border-t-gray-500 border-dashed ml-[60px] pt-5 pb-6 mr-4">
+            <Disclosure.Panel className="border-t-[1px] border-t-gray-500 border-dashed ml-16 md:ml-[60px] pt-5 pb-6 mr-4">
               <GrantProposalTab
                 description={props.Description}
                 startDate={props.Started_on}
