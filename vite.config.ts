@@ -7,13 +7,24 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/main.ts"),
-      name: "main",
       fileName: "main",
-      formats: ["es", "cjs"],
+      name: "main",
+      formats: ["es", "cjs", "umd"],
+    },
+    rollupOptions: {
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
     },
   },
   plugins: [
-    react(),
+    react({
+      jsxRuntime: "classic",
+    }),
     dts({
       insertTypesEntry: true,
     }),
