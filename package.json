@@ -4,12 +4,12 @@
   "version": "1.0.0",
   "description": "UI component library for grant proposal",
   "author": "dcSpark",
-  "main": "dist/lib.js",
+  "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "exports": {
     ".": {
       "types": "./dist/main.d.ts",
-      "import": "./dist/lib.mjs"
+      "import": "./dist/main.mjs"
     }
   },
   "keywords": [],
