@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import dts from "vite-plugin-dts";
 const path = require("path");
 
 export default defineConfig({
@@ -10,15 +11,20 @@ export default defineConfig({
       fileName: "lib",
       formats: ["es", "cjs"],
     },
-    rollupOptions: {
-      external: ["react", "react-dom"],
-      output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-        },
-      },
-    },
+    // rollupOptions: {
+    //   external: ["react", "react-dom"],
+    //   output: {
+    //     globals: {
+    //       react: "React",
+    //       "react-dom": "ReactDOM",
+    //     },
+    //   },
+    // },
   },
-  plugins: [react()],
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true,
+    }),
+  ],
 });
