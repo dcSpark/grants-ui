@@ -1,0 +1,11 @@
+{
+  "endOfLine": "lf",
+  "htmlWhitespaceSensitivity": "css",
+  "insertPragma": false,
+  "jsxSingleQuote": false,
+  "printWidth": 80,
+  "requirePragma": false,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "all"
+}

@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --text-primary: #010a12;
+    --text-secondary: #6d7788;
+    --border-tabs: #c5cbd3;
+    --border-tab: #586474;
+    --bg-card: #fff;
+    --shadow-card: 0 0 70.6977px hsl(0deg 0% 100% / 12%);
+  }
+  .dcspark {
+    --text-primary: #010a12;
+    --text-secondary: #6d7788;
+    --border-tabs: #c5cbd3;
+    --border-tab: #586474;
+    --bg-card: #fff;
+    --shadow-card: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  }
+  .flint {
+    --text-primary: #010a12;
+    --text-secondary: #6d7788;
+    --border-tabs: #c5cbd3;
+    --border-tab: #586474;
+    --bg-card: #fff;
+    --shadow-card: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  }
+  .milkomeda {
+    --text-primary: #fff;
+    --text-secondary: #9ca3af;
+    --border-tabs: #4b5563;
+    --border-tab: #fff;
+    --bg-card: #010a12;
+    --shadow-card: 0 0 70.6977px hsl(0deg 0% 100% / 12%);
+  }
+}
