@@ -1,6 +1,5 @@
 {
   "name": "@dcspark/grants-ui",
-  "private": true,
   "version": "1.0.0",
   "description": "UI component library for grant proposal",
   "author": "dcSpark",
