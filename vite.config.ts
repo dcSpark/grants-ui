@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 const path = require("path");
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/main.ts"),
@@ -23,10 +23,12 @@ export default defineConfig({
   },
   plugins: [
     react({
-      jsxRuntime: "classic",
+      ...(command === "build"
+        ? {
+            jsxRuntime: "classic",
+          }
+        : {}),
     }),
-    dts({
-      insertTypesEntry: true,
-    }),
+    ...(command === "build" ? [dts({ insertTypesEntry: true })] : []),
   ],
-});
+}));

@@ -46,7 +46,7 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
           >
             <div
               className={classNames(
-                "relative w-full pl-12 flex flex-1 flex-col space-x-4 justify-between py-4",
+                "relative w-full pl-9 sm:pl-12 flex flex-1 flex-col space-x-4 justify-between py-4",
                 "md:flex-row md:pl-[60px]",
               )}
             >
@@ -79,12 +79,13 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
               </div>
               <div
                 className={classNames(
-                  "flex flex-1 space-x-4 py-4",
+                  "flex flex-1 flex-col",
+                  "sm:flex-row sm:space-x-4 py-4",
                   "md:border-l-gray-500 md:border-l-[1px] md:border-dashed md:pr-4 md:pl-8 md:py-0",
                 )}
               >
                 {props.Fund ? (
-                  <div className="flex-1">
+                  <div className="flex-1 space-y-1 mb-1 md:mb-0">
                     <LabelWithValue label="Challenge" value={props.Category} />
                     <LabelWithValue label="Fund" value={`Fund ${props.Fund}`} />
                   </div>
@@ -122,7 +123,7 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
-            <Disclosure.Panel className="border-t-[1px] border-t-gray-500 border-dashed ml-16 md:ml-[60px] pt-5 pb-6 mr-4">
+            <Disclosure.Panel className="border-t-[1px] border-t-gray-500 border-dashed ml-12 sm:ml-16 md:ml-[60px] pt-5 pb-6 mr-4">
               <GrantProposalTab
                 description={props.Description}
                 startDate={props.Started_on}
