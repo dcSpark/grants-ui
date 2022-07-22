@@ -109,7 +109,7 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
               src={ArrowUp}
               alt=""
               className={classNames(
-                "transform rotate-180 h-5 w-5 self-center mb-2 md:mb-0",
+                "transform rotate-180 h-5 w-5 self-center mb-2 ml-4 md:mb-0 md:ml-0",
                 open && "rotate-[360deg]",
               )}
             />

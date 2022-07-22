@@ -860,7 +860,7 @@ const Q = Be.exports, un = ["Description", "Status"], on = ({
   })))), /* @__PURE__ */ a.createElement("img", {
     src: rt,
     alt: "",
-    className: Q("transform rotate-180 h-5 w-5 self-center mb-2 md:mb-0", t && "rotate-[360deg]")
+    className: Q("transform rotate-180 h-5 w-5 self-center mb-2 ml-4 md:mb-0 md:ml-0", t && "rotate-[360deg]")
   })), /* @__PURE__ */ a.createElement(an, {
     enter: "transition duration-100 ease-out",
     enterFrom: "transform scale-95 opacity-0",
