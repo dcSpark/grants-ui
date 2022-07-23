@@ -4,43 +4,45 @@
 
 @layer base {
   :root {
-    --text-primary: #010a12;
-    --text-secondary: #6d7788;
-    --border-tabs: #c5cbd3;
-    --border-tab: #586474;
-    --bg-card: #fff;
-    --shadow-card: 0 0 70.6977px hsl(0deg 0% 100% / 12%);
-    --status-completed: #39e27f;
-    --status-ongoing: #f2ca4e;
-    --status-canceled: #dc4747;
-    --status-default: #353944;
+    --gui-accent-color: #ff9828;
+    --gui-dashed-border: #808080;
+    --gui-link-icon: #ff9828;
+    --gui-arrow-icon: gray;
+    --gui-status-text: white;
+    --gui-text-primary: #010a12;
+    --gui-text-secondary: #6d7788;
+    --gui-border-tabs: #c5cbd3;
+    --gui-border-tab: #586474;
+    --gui-bg-card: #fff;
+    --gui-shadow-card: 0 0 70.6977px hsl(0deg 0% 100% / 12%);
+    --gui-status-completed: #39e27f;
+    --gui-status-ongoing: #f2ca4e;
+    --gui-status-canceled: #dc4747;
+    --gui-status-default: #353944;
   }
   .dcspark {
-    --text-primary: #010a12;
-    --text-secondary: #6d7788;
-    --border-tabs: #c5cbd3;
-    --border-tab: #586474;
-    --bg-card: #fff;
-    --shadow-card: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    --gui-text-primary: #010a12;
+    --gui-text-secondary: #6d7788;
+    --gui-border-tabs: #c5cbd3;
+    --gui-border-tab: #586474;
+    --gui-bg-card: #fff;
+    --gui-shadow-card: 0px 4px 20px rgba(0, 0, 0, 0.25);
   }
   .flint {
-    --text-primary: #010a12;
-    --text-secondary: #6d7788;
-    --border-tabs: #c5cbd3;
-    --border-tab: #586474;
-    --bg-card: #fff;
-    --shadow-card: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    --gui-text-primary: #010a12;
+    --gui-text-secondary: #6d7788;
+    --gui-border-tabs: #c5cbd3;
+    --gui-border-tab: #586474;
+    --gui-bg-card: #fff;
+    --gui-shadow-card: 0px 4px 20px rgba(0, 0, 0, 0.25);
   }
   .milkomeda {
-    --text-primary: #fff;
-    --text-secondary: #9ca3af;
-    --border-tabs: #4b5563;
-    --border-tab: #fff;
-    --bg-card: #010a12;
-    --shadow-card: 0 0 70.6977px hsl(0deg 0% 100% / 12%);
-    --status-completed: #39e27f;
-    --status-ongoing: #f2ca4e;
-    --status-canceled: #dc4747;
-    --status-default: #353944;
+    --gui-accent-color: #ff9828;
+    --gui-text-primary: #fff;
+    --gui-text-secondary: #9ca3af;
+    --gui-border-tabs: #4b5563;
+    --gui-border-tab: #fff;
+    --gui-bg-card: #010a12;
+    --gui-shadow-card: 0 0 70.6977px hsl(0deg 0% 100% / 12%);
   }
 }

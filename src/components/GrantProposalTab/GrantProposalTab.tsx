@@ -37,11 +37,11 @@ const GrantProposalTab = ({
                   key={label}
                   className={({ selected }) =>
                     classNames(
-                      "gui-text-xs gui-py-1 gui-px-5 gui-border-b-2 hover:gui-text-orange-600 hover:gui-border-orange-600 uppercase tracking-widest",
-                      "focus:gui-outline-none focus-visible:gui-ring focus-visible:gui-ring-orange-600 focus-visible:gui-ring-opacity-75",
+                      "gui-text-xs gui-py-1 gui-px-5 gui-border-b-2 hover:gui-text-accentColor hover:gui-border-accentColor uppercase tracking-widest",
+                      "focus:gui-outline-none focus-visible:gui-ring focus-visible:gui-ring-accentColor focus-visible:gui-ring-opacity-75",
                       selected
-                        ? "gui-text-orange-600"
-                        : "gui-text-borderTab hover:gui-text-orange-600",
+                        ? "gui-text-accentColor"
+                        : "gui-text-borderTab hover:gui-text-accentColor",
                     )
                   }
                 >
@@ -54,7 +54,7 @@ const GrantProposalTab = ({
             <Tab.Panel
               className={classNames(
                 "gui-p-1",
-                "focus:gui-outline-none focus-visible:gui-ring focus-visible:gui-ring-orange-600 focus-visible:gui-ring-opacity-75",
+                "focus:gui-outline-none focus-visible:gui-ring focus-visible:gui-ring-accentColor focus-visible:gui-ring-opacity-75",
               )}
             >
               <dl className="gui-space-y-4">
@@ -69,7 +69,7 @@ const GrantProposalTab = ({
             <Tab.Panel
               className={classNames(
                 "gui-p-1 gui-text-primaryText",
-                "gui-ring-orange-600 gui-ring-opacity-60 gui-ring-offset-1 gui-ring-offset-orange-600 focus:gui-outline-none focus:gui-ring-1",
+                "gui-ring-accentColor gui-ring-opacity-60 gui-ring-offset-1 gui-ring-offset-accentColor focus:gui-outline-none focus:gui-ring-1",
               )}
             >
               <dl className="gui-space-y-4">
@@ -92,7 +92,7 @@ const GrantProposalTab = ({
                     <dt className="gui-text-sm gui-text-secondaryText gui-leading-5">
                       Read more:
                     </dt>
-                    <dd className="gui-text-sm gui-text-orange-600">
+                    <dd className="gui-text-sm gui-text-accentColor">
                       <a
                         href={statusLink}
                         target="_blank"
@@ -111,13 +111,13 @@ const GrantProposalTab = ({
         <dl className="gui-flex gui-flex-row gui-gap-8 gui-text-sm gui-mt-[26px] gui-px-1 md:gui-px-0 md:gui-pt-4 md:gui-border-t-[1px] md:gui-border-t-borderTabs md:gui-gap-0 md:gui-flex-col md:gui-pl-7 md:gui-basis-[260px] md:gui-min-w-[260px]">
           {startDate ? (
             <div>
-              <dt className="gui-text-gray-500">Start Date</dt>
+              <dt className="gui-text-secondaryText">Start Date</dt>
               <dd>{startDate}</dd>
             </div>
           ) : null}
           {endDate ? (
             <div>
-              <dt className="gui-text-gray-500">End Date</dt>
+              <dt className="gui-text-secondaryText">End Date</dt>
               <dd>{endDate}</dd>
             </div>
           ) : null}
