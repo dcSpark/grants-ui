@@ -3,7 +3,6 @@ import { Tab } from "@headlessui/react";
 import classNames from "classnames";
 import { Maybe } from "../../graphql-types";
 
-const categories = ["Description", "Status"];
 const GrantProposalTab = ({
   description,
   statusTitle,
@@ -19,99 +18,106 @@ const GrantProposalTab = ({
   startDate?: string;
   endDate?: string;
 }) => {
-  const isStatusDisplay = statusTitle || statusDescription || statusLink;
+  const categories = [
+    { label: "Description", isDisplay: true },
+    {
+      label: "Status",
+      isDisplay: statusTitle || statusDescription || statusLink,
+    },
+  ];
+
   return (
     <>
-      <div className="flex flex-col md:flex-row text-primaryText">
-        <Tab.Group as="div" className="flex-1">
-          <Tab.List className="flex space-x-1 border-b-[1px] border-b-borderTabs">
-            {categories.map((category) => (
-              <Tab
-                key={category}
-                className={({ selected }) =>
-                  classNames(
-                    "text-xs py-1 px-5 border-b-2 hover:text-orange hover:border-orange uppercase tracking-widest",
-                    "focus:outline-none focus-visible:ring focus-visible:ring-orange-600 focus-visible:ring-opacity-75",
-                    selected
-                      ? "text-orange-600"
-                      : "text-borderTab hover:text-orange-600",
-                  )
-                }
-              >
-                {category}
-              </Tab>
-            ))}
+      <div className="gui-flex gui-flex-col md:gui-flex-row gui-text-primaryText">
+        <Tab.Group as="div" className="gui-flex-1">
+          <Tab.List className="gui-flex gui-space-x-1 gui-border-b-[1px] gui-border-b-borderTabs">
+            {categories.map(({ label, isDisplay }) =>
+              isDisplay ? (
+                <Tab
+                  key={label}
+                  className={({ selected }) =>
+                    classNames(
+                      "gui-text-xs gui-py-1 gui-px-5 gui-border-b-2 hover:gui-text-orange-600 hover:gui-border-orange-600 uppercase tracking-widest",
+                      "focus:gui-outline-none focus-visible:gui-ring focus-visible:gui-ring-orange-600 focus-visible:gui-ring-opacity-75",
+                      selected
+                        ? "gui-text-orange-600"
+                        : "gui-text-borderTab hover:gui-text-orange-600",
+                    )
+                  }
+                >
+                  {label}
+                </Tab>
+              ) : null,
+            )}
           </Tab.List>
-          <Tab.Panels className="mt-2">
+          <Tab.Panels className="gui-mt-2">
             <Tab.Panel
               className={classNames(
-                "p-1",
-                "focus:outline-none focus-visible:ring focus-visible:ring-orange-600 focus-visible:ring-opacity-75",
+                "gui-p-1",
+                "focus:gui-outline-none focus-visible:gui-ring focus-visible:gui-ring-orange-600 focus-visible:gui-ring-opacity-75",
               )}
             >
-              <dl className="space-y-4">
+              <dl className="gui-space-y-4">
                 <div>
-                  <dt className="text-sm text-secondaryText leading-5">
+                  <dt className="gui-text-sm gui-text-secondaryText gui-leading-5">
                     Problem statement / Description
                   </dt>
-                  <dd className="text-sm">{description}</dd>
+                  <dd className="gui-text-sm">{description}</dd>
                 </div>
               </dl>
             </Tab.Panel>
-            {isStatusDisplay ? (
-              <Tab.Panel
-                className={classNames(
-                  "p-1 text-primaryText",
-                  "ring-orange-600 ring-opacity-60 ring-offset-1 ring-offset-orange-600 focus:outline-none focus:ring-1",
-                )}
-              >
-                <dl className="space-y-4">
-                  {statusTitle ? (
-                    <div>
-                      <dt className="text-sm text-secondaryText leading-5">
-                        Status
-                      </dt>
-                      <dd className="text-sm">{statusTitle}</dd>
-                    </div>
-                  ) : null}
-                  {statusDescription ? (
-                    <div>
-                      <dt className="sr-only">Description</dt>
-                      <dd className="text-sm">{statusDescription}</dd>
-                    </div>
-                  ) : null}
-                  {statusLink ? (
-                    <div>
-                      <dt className="text-sm text-secondaryText leading-5">
-                        Read more:
-                      </dt>
-                      <dd className="text-sm text-orange-600">
-                        <a
-                          href={statusLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="ring-blue-400 focus:outline-none focus:ring-2"
-                        >
-                          {statusLink}
-                        </a>
-                      </dd>
-                    </div>
-                  ) : null}
-                </dl>
-              </Tab.Panel>
-            ) : null}
+            <Tab.Panel
+              className={classNames(
+                "gui-p-1 gui-text-primaryText",
+                "gui-ring-orange-600 gui-ring-opacity-60 gui-ring-offset-1 gui-ring-offset-orange-600 focus:gui-outline-none focus:gui-ring-1",
+              )}
+            >
+              <dl className="gui-space-y-4">
+                {statusTitle ? (
+                  <div>
+                    <dt className="gui-text-sm gui-text-secondaryText gui-leading-5">
+                      Status
+                    </dt>
+                    <dd className="gui-text-sm">{statusTitle}</dd>
+                  </div>
+                ) : null}
+                {statusDescription ? (
+                  <div>
+                    <dt className="gui-sr-only">Description</dt>
+                    <dd className="gui-text-sm">{statusDescription}</dd>
+                  </div>
+                ) : null}
+                {statusLink ? (
+                  <div>
+                    <dt className="gui-text-sm gui-text-secondaryText gui-leading-5">
+                      Read more:
+                    </dt>
+                    <dd className="gui-text-sm gui-text-orange-600">
+                      <a
+                        href={statusLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="gui-ring-blue-400 focus:gui-outline-none focus:gui-ring-2"
+                      >
+                        {statusLink}
+                      </a>
+                    </dd>
+                  </div>
+                ) : null}
+              </dl>
+            </Tab.Panel>
           </Tab.Panels>
         </Tab.Group>
-        <dl className="flex flex-row gap-8 text-sm mt-[26px] px-1 md:px-0 md:pt-4 md:border-t-[1px] md:border-t-borderTabs md:gap-0 md:flex-col md:pl-7 md:basis-[260px] md:min-w-[260px]">
+        <dl className="gui-flex gui-flex-row gui-gap-8 gui-text-sm gui-mt-[26px] gui-px-1 md:gui-px-0 md:gui-pt-4 md:gui-border-t-[1px] md:gui-border-t-borderTabs md:gui-gap-0 md:gui-flex-col md:gui-pl-7 md:gui-basis-[260px] md:gui-min-w-[260px]">
           {startDate ? (
             <div>
-              <dt className="text-gray-500">Start Date</dt>
+              <dt className="gui-text-gray-500">Start Date</dt>
               <dd>{startDate}</dd>
             </div>
           ) : null}
           {endDate ? (
             <div>
-              <dt className="text-gray-500">End Date</dt>
+              <dt className="gui-text-gray-500">End Date</dt>
               <dd>{endDate}</dd>
             </div>
           ) : null}

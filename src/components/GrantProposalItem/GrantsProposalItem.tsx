@@ -12,18 +12,20 @@ export type GrantProposalItemProps = AirtableData & {
 
 const LabelWithValue = ({ label, value }: { label: string; value: any }) => {
   return (
-    <p className="flex flex-col">
-      <span className=" text-secondaryText text-sm">{label}</span>
-      <span className="text-primaryText text-sm font-bold">{value}</span>
+    <p className="gui-flex gui-flex-col">
+      <span className="gui-text-secondaryText gui-text-sm">{label}</span>
+      <span className="gui-text-primaryText gui-text-sm gui-font-bold">
+        {value}
+      </span>
     </p>
   );
 };
 
 const statusToBgColor: Record<string, string> = {
-  Completed: "bg-[#39e27f]",
-  Ongoing: "bg-[#f2ca4e]",
-  Canceled: "bg-[#dc4747]",
-  Default: "bg-gray-600",
+  Completed: "gui-bg-status-completed",
+  Ongoing: "gui-bg-status-ongoing",
+  Canceled: "gui-bg-status-canceled",
+  Default: "gui-bg-status-default",
 };
 
 const GrantProposalItem = (props: GrantProposalItemProps) => {
@@ -32,37 +34,39 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
       as="div"
       className={classNames(
         props.theme,
-        "px-0 rounded-r-2xl shadow-card bg-card",
+        "gui-px-0 gui-rounded-r-2xl gui-shadow-card gui-bg-card",
       )}
     >
       {({ open }) => (
         <>
           <Disclosure.Button
             className={classNames(
-              "flex flex-col min-h-[133px] w-full justify-between pr-4 rounded-r-2xl text-left",
-              "focus:outline-none focus-visible:ring focus-visible:ring-orange-600 focus-visible:ring-opacity-75",
-              "md:flex-row",
+              "gui-flex gui-flex-col gui-min-h-[133px] gui-w-full gui-justify-between gui-pr-4 gui-rounded-r-2xl gui-text-left",
+              "focus:gui-outline-none focus-visible:gui-ring focus-visible:gui-ring-orange-600 focus-visible:gui-ring-opacity-75",
+              "md:gui-flex-row",
             )}
           >
             <div
               className={classNames(
-                "relative w-full pl-9 sm:pl-12 flex flex-1 flex-col space-x-4 justify-between py-4",
-                "md:flex-row md:pl-[60px]",
+                "gui-relative gui-w-full gui-pl-9 sm:gui-pl-12 gui-flex gui-flex-1 gui-flex-col gui-space-x-4 gui-justify-between gui-py-4",
+                "md:gui-flex-row md:gui-pl-[60px]",
               )}
             >
               <div
                 className={classNames(
-                  "absolute left-0 top-[122px] w-[122px] h-[42px] transform rotate-[270deg] origin-top-left rounded-bl-[16px]",
-                  "flex items-center justify-center text-white font-bold text-xs uppercase tracking-[2px]",
+                  "gui-absolute gui-left-0 gui-top-[122px] gui-w-[122px] gui-h-[42px] gui-transform gui-rotate-[270deg] gui-origin-top-left gui-rounded-bl-[16px]",
+                  "gui-flex gui-items-center gui-justify-center gui-text-white gui-font-bold gui-text-xs gui-uppercase gui-tracking-[2px]",
                   statusToBgColor[props.Status ?? "Default"],
                 )}
               >
                 {props.Status}
               </div>
-              <div className="flex flex-1 pb-8 md:py-0 border-b-gray-500 border-b-[1px] border-dashed md:border-b-0">
+              <div className="gui-flex gui-flex-1 gui-pb-8 md:gui-py-0 gui-border-b-gray-500 gui-border-b-[1px] gui-border-dashed md:gui-border-b-0">
                 <div>
-                  <span className="text-secondaryText text-sm">Proposal</span>
-                  <h2 className="text-lg text-primaryText">
+                  <span className="gui-text-secondaryText gui-text-sm">
+                    Proposal
+                  </span>
+                  <h2 className="gui-text-lg gui-text-primaryText">
                     {props.Project_name}
                   </h2>
                   <a
@@ -70,27 +74,31 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
                     target="_blank"
                     onClick={(e) => e.stopPropagation()}
                     rel="noopener noreferrer"
-                    className="text-md text-orange-600 pointer flex items-center no-underline"
+                    className="gui-text-md gui-text-orange-600 gui-pointer gui-flex gui-items-center gui-no-underline"
                   >
                     Read More
-                    <img src={IconLink} className="w-4 h-4 ml-1" alt="" />
+                    <img
+                      src={IconLink}
+                      className="gui-w-4 gui-h-4 gui-ml-1"
+                      alt=""
+                    />
                   </a>
                 </div>
               </div>
               <div
                 className={classNames(
-                  "flex flex-1 flex-col",
-                  "sm:flex-row sm:space-x-4 py-4",
-                  "md:border-l-gray-500 md:border-l-[1px] md:border-dashed md:pr-4 md:pl-8 md:py-0",
+                  "gui-flex gui-flex-1 gui-flex-col",
+                  "sm:gui-flex-row sm:gui-space-x-4 gui-py-4",
+                  "md:gui-border-l-gray-500 md:gui-border-l-[1px] md:gui-border-dashed md:gui-pr-4 md:gui-pl-8 md:gui-py-0",
                 )}
               >
                 {props.Fund ? (
-                  <div className="flex-1 space-y-1 mb-1 md:mb-0">
+                  <div className="gui-flex-1 gui-space-y-1 gui-mb-1 md:gui-mb-0">
                     <LabelWithValue label="Challenge" value={props.Category} />
                     <LabelWithValue label="Fund" value={`Fund ${props.Fund}`} />
                   </div>
                 ) : null}
-                <div className="flex-1 space-y-1">
+                <div className="gui-flex-1 gui-space-y-1">
                   {props.USD_equivalent ? (
                     <LabelWithValue
                       label="Amount Requested"
@@ -110,25 +118,25 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
               src={ArrowUp}
               alt=""
               className={classNames(
-                "transform rotate-180 h-5 w-5 self-center mb-2 ml-4 md:mb-0 md:ml-0",
-                open && "rotate-[360deg]",
+                "gui-transform gui-rotate-180 gui-h-5 gui-w-5 gui-self-center gui-mb-2 gui-ml-4 md:gui-mb-0 md:gui-ml-0",
+                open && "gui-rotate-[360deg]",
               )}
             />
           </Disclosure.Button>
           <Transition
-            enter="transition duration-100 ease-out"
-            enterFrom="transform scale-95 opacity-0"
-            enterTo="transform scale-100 opacity-100"
-            leave="transition duration-75 ease-out"
-            leaveFrom="transform scale-100 opacity-100"
-            leaveTo="transform scale-95 opacity-0"
+            enter="gui-transition gui-duration-100 gui-ease-out"
+            enterFrom="gui-transform gui-scale-95 gui-opacity-0"
+            enterTo="gui-transform gui-scale-100 gui-opacity-100"
+            leave="gui-transition gui-duration-75 gui-ease-out"
+            leaveFrom="gui-transform gui-scale-100 gui-opacity-100"
+            leaveTo="gui-transform gui-scale-95 gui-opacity-0"
           >
-            <Disclosure.Panel className="border-t-[1px] border-t-gray-500 border-dashed ml-12 sm:ml-16 md:ml-[60px] pt-5 pb-6 mr-4">
+            <Disclosure.Panel className="gui-border-t-[1px] gui-border-t-gray-500 gui-border-dashed gui-ml-12 sm:gui-ml-16 md:gui-ml-[60px] gui-pt-5 gui-pb-6 gui-mr-4">
               <GrantProposalTab
                 description={props.Description}
                 startDate={props.Started_on}
                 endDate={props.Completed_on}
-                statusTitle={props.Status}
+                statusTitle={props.Status_title}
                 statusDescription={props.Status_description}
                 statusLink={props.Status_desc_link1}
               />

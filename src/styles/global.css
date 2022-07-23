@@ -10,6 +10,10 @@
     --border-tab: #586474;
     --bg-card: #fff;
     --shadow-card: 0 0 70.6977px hsl(0deg 0% 100% / 12%);
+    --status-completed: #39e27f;
+    --status-ongoing: #f2ca4e;
+    --status-canceled: #dc4747;
+    --status-default: #353944;
   }
   .dcspark {
     --text-primary: #010a12;
@@ -34,5 +38,9 @@
     --border-tab: #fff;
     --bg-card: #010a12;
     --shadow-card: 0 0 70.6977px hsl(0deg 0% 100% / 12%);
+    --status-completed: #39e27f;
+    --status-ongoing: #f2ca4e;
+    --status-canceled: #dc4747;
+    --status-default: #353944;
   }
 }
