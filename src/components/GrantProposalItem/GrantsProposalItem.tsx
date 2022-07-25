@@ -8,6 +8,7 @@ import ArrowDownIcon from "../assets/ArrowDownIcon";
 
 export type GrantProposalItemProps = AirtableData & {
   theme: "milkomeda" | "dcspark" | "flint";
+  className?: string;
 };
 
 const LabelWithValue = ({ label, value }: { label: string; value: any }) => {
@@ -35,6 +36,7 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
       className={classNames(
         props.theme,
         "gui-px-0 gui-rounded-r-2xl gui-shadow-card gui-bg-card",
+        props?.className,
       )}
     >
       {({ open }) => (
