@@ -37,11 +37,11 @@ const GrantProposalTab = ({
                   key={label}
                   className={({ selected }) =>
                     classNames(
-                      "gui-text-xs gui-py-1 gui-px-5 gui-border-b-2 hover:gui-text-accentColor hover:gui-border-accentColor uppercase tracking-widest",
+                      "gui-uppercase gui-text-xs gui-py-1 gui-px-4 gui-border-b-2 gui-tracking-widest",
                       "focus:gui-outline-none focus-visible:gui-ring focus-visible:gui-ring-accentColor focus-visible:gui-ring-opacity-75",
                       selected
-                        ? "gui-text-accentColor"
-                        : "gui-text-borderTab hover:gui-text-accentColor",
+                        ? "gui-text-accentColor gui-border-b-accentColor"
+                        : "gui-text-borderTab gui-border-b-borderTab hover:gui-text-accentColor hover:gui-border-b-accentColor",
                     )
                   }
                 >

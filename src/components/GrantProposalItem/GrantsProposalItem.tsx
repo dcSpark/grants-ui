@@ -71,16 +71,18 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
                   <h2 className="gui-text-lg gui-text-primaryText">
                     {props.Project_name}
                   </h2>
-                  <a
-                    href="https://paulccari.com"
-                    target="_blank"
-                    onClick={(e) => e.stopPropagation()}
-                    rel="noopener noreferrer"
-                    className="gui-text-md gui-text-accentColor gui-pointer gui-flex gui-items-center gui-no-underline"
-                  >
-                    Read More
-                    <LinkIcon className="gui-w-4 gui-h-4 gui-ml-1 gui-text-linkIcon" />
-                  </a>
+                  {props.origin_link ? (
+                    <a
+                      href={props.origin_link}
+                      target="_blank"
+                      onClick={(e) => e.stopPropagation()}
+                      rel="noopener noreferrer"
+                      className="gui-text-md gui-text-accentColor gui-pointer gui-flex gui-items-center gui-no-underline"
+                    >
+                      Read More
+                      <LinkIcon className="gui-w-4 gui-h-4 gui-ml-1 gui-text-linkIcon" />
+                    </a>
+                  ) : null}
                 </div>
               </div>
               <div
@@ -97,18 +99,18 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
                   </div>
                 ) : null}
                 <div className="gui-flex-1 gui-space-y-1">
-                  {props.USD_equivalent ? (
+                  {props.USD_equivalent && props.Currency ? (
                     <LabelWithValue
                       label="Amount Requested"
-                      value={`${props.USD_equivalent ?? ""} in ${
-                        props.Currency
-                      } `}
+                      value={`${props.USD_equivalent} in ${props.Currency} `}
                     />
                   ) : null}
-                  <LabelWithValue
-                    label="Project Lead"
-                    value={props.Project_Lead}
-                  />
+                  {props.Project_Lead ? (
+                    <LabelWithValue
+                      label="Project Lead"
+                      value={props.Project_Lead}
+                    />
+                  ) : null}
                 </div>
               </div>
             </div>
