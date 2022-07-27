@@ -9,6 +9,12 @@ export default {
   title: "Components/GrantsProposalItem",
   component: GrantProposalItem,
   argTypes: {
+    theme: {
+      control: {
+        type: "select",
+        options: ["dcspark", "milkomeda", "flint"],
+      },
+    },
     Status: {
       control: {
         type: "select",
@@ -24,21 +30,21 @@ const Template: ComponentStory<typeof GrantProposalItem> = (
 
 export const milkomedaTheme = Template.bind({});
 milkomedaTheme.args = {
+  theme: "milkomeda",
   ...proposalData,
   Status: "Completed",
-  theme: "milkomeda",
 };
 
 export const dcsparkTheme = Template.bind({});
 dcsparkTheme.args = {
-  ...proposalData,
   theme: "dcspark",
+  ...proposalData,
   Status: "Ongoing",
 };
 
 export const flintTheme = Template.bind({});
 flintTheme.args = {
-  ...proposalData,
   theme: "flint",
+  ...proposalData,
   Status: "Canceled",
 };
