@@ -97,7 +97,7 @@ const GrantProposalTab = ({
                         href={statusLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="gui-ring-blue-400 focus:gui-outline-none focus:gui-ring-2"
+                        className="gui-ring-accentColor focus:gui-outline-none focus:gui-ring-2"
                       >
                         {statusLink}
                       </a>

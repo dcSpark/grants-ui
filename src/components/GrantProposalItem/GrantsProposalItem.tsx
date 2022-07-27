@@ -76,8 +76,14 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
                       href={props.origin_link}
                       target="_blank"
                       onClick={(e) => e.stopPropagation()}
+                      onKeyDown={(e: React.KeyboardEvent<HTMLAnchorElement>) =>
+                        e.stopPropagation()
+                      }
                       rel="noopener noreferrer"
-                      className="gui-text-md gui-text-accentColor gui-pointer gui-flex gui-items-center gui-no-underline"
+                      className={classNames(
+                        "gui-text-md gui-text-accentColor gui-pointer gui-flex gui-items-center gui-no-underline",
+                        "gui-ring-accentColor focus:gui-outline-none focus:gui-ring-2",
+                      )}
                     >
                       Read More
                       <LinkIcon className="gui-w-4 gui-h-4 gui-ml-1 gui-text-linkIcon" />
