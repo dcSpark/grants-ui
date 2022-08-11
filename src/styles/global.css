@@ -19,6 +19,17 @@
     --gui-status-ongoing: #f2ca4e;
     --gui-status-canceled: #dc4747;
     --gui-status-default: #353944;
+    --gui-filter-option-icon: #ffffff;
+    --gui-filter-option-icon-selected: #ffffff;
+    --gui-filter-option-textPrimary: #ffffff;
+    --gui-filter-option-textPrimary-selected: #ffffff;
+    --gui-filter-option-textSecondary: #c8c8c8;
+    --gui-filter-option-textSecondary-selected: #ffffff;
+    --gui-filter-option-bgActive: var(--gui-accent-color);
+    --gui-filter-option-bgDefault: #1f272e;
+    --gui-filter-option-bgHover: #2f3a45;
+    --gui-filter-option-bgSelected: #2f3a45;
+    --gui-shadow-filter-option: 0px 0px 70.6977px rgba(255, 255, 255, 0.12);
   }
   .dcspark {
     --gui-text-primary: #010a12;
