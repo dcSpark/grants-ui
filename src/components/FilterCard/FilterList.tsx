@@ -32,7 +32,8 @@ export default function FilterList({
 
       <div
         className={classNames(
-          "gui-grid gui-gap-3 md:gui-gap-6 gui-grid-cols-filterList",
+          "gui-grid gui-gap-3 gui-grid-col-1",
+          "md:gui-gap-6 md:gui-grid-cols-filterList",
           className,
         )}
       >
@@ -55,7 +56,7 @@ export default function FilterList({
             {({ active, checked }) => (
               <>
                 {item.tooltipInfo ? (
-                  <div className="gui-absolute gui-top-3 gui-right-3 gui-z-20">
+                  <div className="gui-absolute gui-top-3 gui-right-3">
                     <Tooltip.Provider>
                       <Tooltip.Root delayDuration={0}>
                         <Tooltip.Trigger>

@@ -43,7 +43,7 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        filterList: "repeat(auto-fit, minmax(180px, 1fr))",
+        filterList: "repeat(auto-fit, minmax(160px, 1fr))",
       },
     },
   },
