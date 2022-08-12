@@ -6,7 +6,7 @@ import GrantProposalTab from "../GrantProposalTab/GrantProposalTab";
 import LinkIcon from "../assets/LinkIcon";
 import ArrowDownIcon from "../assets/ArrowDownIcon";
 
-export type GrantProposalItemProps = AirtableData & {
+export type ProposalCardProps = AirtableData & {
   theme: "milkomeda" | "dcspark" | "flint";
   className?: string;
 };
@@ -29,7 +29,7 @@ const statusToBgColor: Record<string, string> = {
   Default: "gui-bg-status-default",
 };
 
-const GrantProposalItem = (props: GrantProposalItemProps) => {
+const ProposalCard = (props: ProposalCardProps) => {
   return (
     <Disclosure
       as="div"
@@ -152,4 +152,4 @@ const GrantProposalItem = (props: GrantProposalItemProps) => {
   );
 };
 
-export default GrantProposalItem;
+export default ProposalCard;

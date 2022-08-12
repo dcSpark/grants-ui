@@ -1,4 +1,4 @@
-import { Listbox, Tab as HUITab, Transition } from "@headlessui/react";
+import { Tab as HUITab } from "@headlessui/react";
 import classNames from "classnames";
 import * as React from "react";
 
@@ -39,7 +39,7 @@ const TabPanel = ({ children }: { children: React.ReactNode }) => (
 export default function GrantsTab({ options, className }: TabGroupProps) {
   return (
     <HUITab.Group as="div" className={className}>
-      <HUITab.List className="gui-max-w-[288px] md:gui-max-w-[516px] gui-mx-auto gui-flex gui-space-x-1 gui-bg-tabgroup-listBg gui-p-2 gui-rounded-[160px] gui-h-[64px] gui-shadow-tabGroup gui-mb-2 md:gui-mb-16">
+      <HUITab.List className="gui-max-w-[288px] md:gui-max-w-[516px] gui-mx-auto gui-flex gui-space-x-1 gui-bg-tabgroup-listBg gui-p-2 gui-rounded-[160px] md:gui-h-[64px] gui-shadow-tabGroup gui-mb-2 md:gui-mb-16">
         {options.map((option) => (
           <Tab key={option.name} disabled={option.disabled}>
             {option.name}
