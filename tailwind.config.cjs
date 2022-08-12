@@ -46,11 +46,19 @@ module.exports = {
         boxTextActive: "var(--gui-select-box-textActive)",
         boxTextHover: "var(--gui-select-box-textHover)",
       },
+      tabgroup: {
+        listBg: "var(--gui-tabgroup-listBg)",
+        tabBg: "var(--gui-tabgroup-tabBg)",
+        tabBgActive: "var(--gui-tabgroup-tabBgActive)",
+        tabText: "var(--gui-tabgroup-tabText)",
+        tabTextActive: "var(--gui-tabgroup-tabTextActive)",
+      },
     },
     boxShadow: {
       card: "var(--gui-shadow-card)",
       filterOption: "var(--gui-shadow-filter-option)",
       tooltipContent: "var(--gui-shadow-tooltip-content)",
+      tabGroup: "var(--gui-shadow-tabgroup)",
     },
     extend: {
       gridTemplateColumns: {

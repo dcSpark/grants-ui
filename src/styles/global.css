@@ -44,6 +44,13 @@
     --gui-select-box-text: #ffffff;
     --gui-select-box-textActive: #ffffff;
     --gui-select-box-textHover: #ffffff;
+    /* tabgroup */
+    --gui-tabgroup-listBg: #010a12;
+    --gui-tabgroup-tabBg: #010a12;
+    --gui-tabgroup-tabBgActive: var(--gui-accent-color);
+    --gui-tabgroup-tabText: #939393;
+    --gui-tabgroup-tabTextActive: #fff;
+    --gui-shadow-tabgroup: 0px 0px 40px rgba(255, 255, 255, 0.28);
   }
   .dcspark {
     --gui-text-primary: #010a12;
