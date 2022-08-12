@@ -53,6 +53,14 @@ module.exports = {
         tabText: "var(--gui-tabgroup-tabText)",
         tabTextActive: "var(--gui-tabgroup-tabTextActive)",
       },
+      newsCard: {
+        bg: "var(--gui-newsCard-bg)",
+        title: "var(--gui-newsCard-title)",
+        description: "var(--gui-newsCard-description)",
+        date: "var(--gui-newsCard-date)",
+        link: "var(--gui-newsCard-link)",
+        icon: "var(--gui-newsCard-icon)",
+      },
     },
     boxShadow: {
       card: "var(--gui-shadow-card)",
@@ -66,5 +74,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

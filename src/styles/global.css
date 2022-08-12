@@ -51,6 +51,13 @@
     --gui-tabgroup-tabText: #939393;
     --gui-tabgroup-tabTextActive: #fff;
     --gui-shadow-tabgroup: 0px 0px 40px rgba(255, 255, 255, 0.28);
+    /* newsCard */
+    --gui-newsCard-title: #ffffff;
+    --gui-newsCard-description: #c8c8c8;
+    --gui-newsCard-date: #c8c8c8;
+    --gui-newsCard-link: var(--gui-accent-color);
+    --gui-newsCard-icon: var(--gui-accent-color);
+    --gui-newsCard-bg: #010a12;
   }
   .dcspark {
     --gui-text-primary: #010a12;
