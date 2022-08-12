@@ -32,11 +32,19 @@ module.exports = {
         bgActive: "var(--gui-filter-option-bgActive)",
         bgHover: "var(--gui-filter-option-bgHover)",
         bgSelected: "var(--gui-filter-option-bgSelected)",
+        tooltipText: "var(--gui-filter-option-tooltip-text)",
+        tooltipBg: "var(--gui-filter-option-tooltip-bg)",
       },
     },
     boxShadow: {
       card: "var(--gui-shadow-card)",
       filterOption: "var(--gui-shadow-filter-option)",
+      tooltipContent: "var(--gui-shadow-tooltip-content)",
+    },
+    extend: {
+      gridTemplateColumns: {
+        filterList: "repeat(auto-fit, minmax(180px, 1fr))",
+      },
     },
   },
   plugins: [],

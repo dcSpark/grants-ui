@@ -1,38 +1,48 @@
-// import * as React from "react";
-export type FilterOptionProps = {
+import * as React from "react";
+import { RadioGroup } from "@headlessui/react";
+import classNames from "classnames";
+import * as Tooltip from "@radix-ui/react-tooltip";
+
+export type FilterOption = {
   label: string;
   value: string;
   aditionalText: string;
-  tooltipInfo: "Heres about ..";
-  icon: React.ReactNode;
+  tooltipInfo?: string;
+  icon?: JSX.Element;
 };
 export type FilterListProps = {
-  options: FilterOptionProps[];
+  value: any;
+  onChange: React.Dispatch<React.SetStateAction<FilterOption>>;
+  groupLabel: string;
+  className: string;
+  options: FilterOption[];
 };
 
-import { useState } from "react";
-import { RadioGroup } from "@headlessui/react";
-import classNames from "classnames";
-
-export default function FilterList({ options }: FilterListProps) {
-  const [selected, setSelected] = useState(options[0]);
-
+export default function FilterList({
+  value,
+  onChange,
+  groupLabel,
+  options,
+  className,
+}: FilterListProps) {
   return (
-    <RadioGroup
-      as="div"
-      className="gui-w-full gui-flex gui-flex-wrap"
-      value={selected}
-      onChange={setSelected}
-    >
-      <RadioGroup.Label className="gui-sr-only">Server size</RadioGroup.Label>
-      <div className="gui-space-y-4">
-        {options.map((item) => (
+    <RadioGroup as="div" value={value} onChange={onChange}>
+      <RadioGroup.Label className="gui-sr-only">{groupLabel}</RadioGroup.Label>
+      {/* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */}
+
+      <div
+        className={classNames(
+          "gui-grid gui-gap-3 md:gui-gap-6 gui-grid-cols-filterList",
+          className,
+        )}
+      >
+        {options?.map((item) => (
           <RadioGroup.Option
             key={item.value}
             value={item.value}
             className={({ active, checked }) =>
               classNames(
-                "gui-relative gui-flex gui-cursor-pointer gui-rounded-2xl gui-px-5 gui-py-4 gui-shadow-md gui-focus:outline-none gui-min-h-[150px] gui-min-w-[200px] gui-shadow-filterOption",
+                "gui-relative gui-flex gui-cursor-pointer gui-rounded-2xl gui-px-5 gui-py-3 md:gui-py-4 gui-shadow-md gui-focus:outline-none md:gui-min-h-[150px] gui-shadow-filterOption",
                 active
                   ? "gui-ring-offset-2 gui-ring-offset-filterOption-bgActive gui-ring-opacity-60 "
                   : "",
@@ -44,13 +54,30 @@ export default function FilterList({ options }: FilterListProps) {
           >
             {({ active, checked }) => (
               <>
-                <InfoIcon className="gui-absolute gui-right-3 gui-top-3" />
-                <div className="gui-flex gui-flex-col gui-text-sm gui-w-full gui-justify-center gui-items-center">
-                  {item.icon}
+                {item.tooltipInfo ? (
+                  <div className="gui-absolute gui-top-3 gui-right-3 gui-z-20">
+                    <Tooltip.Provider>
+                      <Tooltip.Root delayDuration={0}>
+                        <Tooltip.Trigger>
+                          <InfoIcon />
+                        </Tooltip.Trigger>
+                        <Tooltip.Portal>
+                          <Tooltip.Content className="gui-max-w-[220px] gui-text-sm gui-text-filterOption-tooltipText gui-bg-filterOption-tooltipBg gui-rounded-md gui-px-4 gui-py-2 gui-shadow-tooltipContent">
+                            {item.tooltipInfo}
+                            <Tooltip.Arrow className="gui-fill-filterOption-tooltipBg" />
+                          </Tooltip.Content>
+                        </Tooltip.Portal>
+                      </Tooltip.Root>
+                    </Tooltip.Provider>
+                  </div>
+                ) : null}
+                <div className="gui-flex gui-flex-row md:gui-flex-col gui-text-sm gui-w-full md:gui-justify-center gui-items-center">
+                  {item?.icon}
                   <RadioGroup.Label
                     as="p"
                     className={classNames(
-                      "gui-font-bold gui-text-xl gui-mb-1 gui-mt-3",
+                      "gui-font-bold gui-text-md md:gui-text-xl gui-ml-3 md:gui-ml-0 md:gui-mb-1 md:gui-mt-3",
+                      item?.icon == null && "gui-ml-0",
                       checked
                         ? "gui-text-filterOption-textPrimary-active"
                         : "gui-text-filterOption-textPrimary",
@@ -61,7 +88,7 @@ export default function FilterList({ options }: FilterListProps) {
                   <RadioGroup.Description
                     as="span"
                     className={classNames(
-                      "gui-font-medium gui-text-sm",
+                      "gui-hidden md:gui-block gui-font-medium gui-text-sm",
                       checked
                         ? "gui-text-filterOption-textSecondary-active"
                         : "gui-text-filterOption-textSecondary",
@@ -78,35 +105,12 @@ export default function FilterList({ options }: FilterListProps) {
     </RadioGroup>
   );
 }
-function InfoIcon(props: { className: string }) {
+function InfoIcon() {
   return (
-    <svg width="18" height="18" fill="none" className={props.className}>
+    <svg width="20" height="20">
       <path
-        d="M9 16.008c-1.38605 0-2.74097-.411-3.89343-1.1811-1.15246-.77-2.0507-1.8645-2.58111-3.1451-.53042-1.2805-.66921-2.68958-.3988-4.04899.27041-1.35942.93785-2.60813 1.91794-3.58822.98008-.98008 2.22879-1.64753 3.58821-1.91793 1.35942-.27041 2.76849-.13163 4.04899.39879 1.2806.53042 2.3751 1.42865 3.1451 2.58111C15.597 6.25902 16.008 7.61395 16.008 9c0 .9203-.1813 1.8316-.5335 2.6818-.3521.8503-.8683 1.6228-1.5191 2.2736-.6507.6508-1.4233 1.167-2.2736 1.5191-.8502.3522-1.7615.5335-2.6818.5335ZM9 1c-1.58225 0-3.12897.46919-4.44456 1.34824-1.31559.87905-2.34097 2.12848-2.94647 3.59029-.6055 1.46181-.76393 3.07034-.45525 4.62217.30868 1.5519 1.07061 2.9773 2.18943 4.0962 1.11882 1.1188 2.54428 1.8807 4.09613 2.1894 1.55185.3087 3.16042.1502 4.62222-.4553 1.4618-.6055 2.7112-1.6308 3.5903-2.9464C16.5308 12.129 17 10.5822 17 9c0-2.12173-.8429-4.15656-2.3431-5.65685C13.1566 1.84285 11.1217 1 9 1"
-        fill="#fff"
-      />
-      <path
-        d="M9 1c-1.58225 0-3.12897.46919-4.44456 1.34824-1.31559.87905-2.34097 2.12848-2.94647 3.59029-.6055 1.46181-.76393 3.07034-.45525 4.62217.30868 1.5519 1.07061 2.9773 2.18943 4.0962 1.11882 1.1188 2.54428 1.8807 4.09613 2.1894 1.55185.3087 3.16042.1502 4.62222-.4553 1.4618-.6055 2.7112-1.6308 3.5903-2.9464C16.5308 12.129 17 10.5822 17 9c0-2.12173-.8429-4.15656-2.3431-5.65685C13.1566 1.84285 11.1217 1 9 1m0 15.008c-1.38605 0-2.74097-.411-3.89343-1.1811-1.15246-.77-2.0507-1.8645-2.58111-3.1451-.53042-1.2805-.66921-2.68958-.3988-4.04899.27041-1.35942.93785-2.60813 1.91794-3.58822.98008-.98008 2.22879-1.64753 3.58821-1.91793 1.35942-.27041 2.76849-.13163 4.04899.39879 1.2806.53042 2.3751 1.42865 3.1451 2.58111C15.597 6.25902 16.008 7.61395 16.008 9c0 .9203-.1813 1.8316-.5335 2.6818-.3521.8503-.8683 1.6228-1.5191 2.2736-.6507.6508-1.4233 1.167-2.2736 1.5191-.8502.3522-1.7615.5335-2.6818.5335Z"
-        stroke="#373A4D"
-        stroke-width=".25"
-      />
-      <path
-        d="M8.99976 4.96782c.15636.01545.30493.07572.42787.17355.12294.09784.21502.22909.26518.37799.05016.14889.05627.30911.01759.46139-.03868.15229-.1205.29016-.23564.39708-.11513.10691-.25869.17831-.41341.20562-.15473.02731-.31405.00936-.45883-.05167-.14478-.06104-.26886-.16258-.35734-.29242-.08847-.12984-.13758-.28247-.14142-.43954-.00283-.11557.01894-.23042.06385-.33695.04491-.10653.11194-.2023.19666-.28096.08471-.07867.18518-.13843.29474-.17534.10955-.03691.2257-.05012.34075-.03875"
-        fill="#fff"
-      />
-      <path
-        d="M8.99976 4.96782c.15636.01545.30493.07572.42787.17355.12294.09784.21502.22909.26518.37799.05016.14889.05627.30911.01759.46139-.03868.15229-.1205.29016-.23564.39708-.11513.10691-.25869.17831-.41341.20562-.15473.02731-.31405.00936-.45883-.05167-.14478-.06104-.26886-.16258-.35734-.29242-.08847-.12984-.13758-.28247-.14142-.43954-.00283-.11557.01894-.23042.06385-.33695.04491-.10653.11194-.2023.19666-.28096.08471-.07867.18518-.13843.29474-.17534.10955-.03691.2257-.05012.34075-.03875"
-        stroke="#373A4D"
-        stroke-width=".25"
-      />
-      <path
-        d="M8.9998 7.97559c-.06441-.00004-.12816.01289-.18746.038-.05931.02512-.11295.06191-.15774.10819-.04479.04628-.0798.1011-.10296.1612-.02316.0601-.03399.12424-.03184.18861v4.20801c0 .1273.05057.2494.14059.3394.09001.09.2121.1406.33941.1406.1273 0 .24939-.0506.33941-.1406.09002-.09.14059-.2121.14059-.3394V8.47159c.00215-.06437-.00868-.12851-.03184-.18861-.02316-.0601-.05818-.11492-.10297-.1612-.04478-.04628-.09843-.08307-.15773-.10819-.05931-.02511-.12306-.03804-.18746-.038"
-        fill="#fff"
-      />
-      <path
-        d="M8.9998 7.97559c-.06441-.00004-.12816.01289-.18746.038-.05931.02512-.11295.06191-.15774.10819-.04479.04628-.0798.1011-.10296.1612-.02316.0601-.03399.12424-.03184.18861v4.20801c0 .1273.05057.2494.14059.3394.09001.09.2121.1406.33941.1406.1273 0 .24939-.0506.33941-.1406.09002-.09.14059-.2121.14059-.3394V8.47159c.00215-.06437-.00868-.12851-.03184-.18861-.02316-.0601-.05818-.11492-.10297-.1612-.04478-.04628-.09843-.08307-.15773-.10819-.05931-.02511-.12306-.03804-.18746-.038"
-        stroke="#373A4D"
-        stroke-width=".25"
+        d="M10 1.66667c-4.59497 0-8.33333 3.73836-8.33333 8.33333 0 4.595 3.73836 8.3333 8.33333 8.3333 4.595 0 8.3333-3.7383 8.3333-8.3333 0-4.59497-3.7383-8.33333-8.3333-8.33333Zm0 1.25c3.9194 0 7.0833 3.16391 7.0833 7.08333 0 3.9194-3.1639 7.0833-7.0833 7.0833-3.91942 0-7.08333-3.1639-7.08333-7.0833 0-3.91942 3.16391-7.08333 7.08333-7.08333Zm0 2.91666c-.22101 0-.43298.0878-.58926.24408-.15628.15628-.24407.36824-.24407.58926 0 .22101.08779.43297.24407.58925C9.56702 7.4122 9.77899 7.5 10 7.5c.221 0 .433-.0878.5893-.24408.1562-.15628.244-.36824.244-.58925 0-.22102-.0878-.43298-.244-.58926-.1563-.15628-.3683-.24408-.5893-.24408Zm-.00977 2.90772c-.16561.00258-.32343.0708-.43879.18967-.11536.11887-.17882.27866-.17644.44428v4.5833c-.00117.0829.01413.1651.04501.2419.03089.0769.07674.1468.13489.2058.05815.059.12745.1058.20386.1378s.15841.0484.24124.0484c.0828 0 .1648-.0164.2412-.0484.0765-.032.1457-.0788.2039-.1378.0582-.059.104-.1289.1349-.2058.0309-.0768.0462-.159.045-.2419V9.375c.0012-.08365-.0144-.1667-.0459-.24421-.0315-.07751-.0782-.14791-.1374-.20703-.0592-.05912-.1297-.10575-.2072-.13714-.0776-.03138-.1606-.04688-.24427-.04557Z"
+        fill="currentColor"
       />
     </svg>
   );

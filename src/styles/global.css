@@ -27,9 +27,13 @@
     --gui-filter-option-textSecondary-selected: #ffffff;
     --gui-filter-option-bgActive: var(--gui-accent-color);
     --gui-filter-option-bgDefault: #1f272e;
-    --gui-filter-option-bgHover: #2f3a45;
+    --gui-filter-option-bgHover: #171e24;
     --gui-filter-option-bgSelected: #2f3a45;
+    --gui-filter-option-tooltip-text: #010a12;
+    --gui-filter-option-tooltip-bg: #fff;
     --gui-shadow-filter-option: 0px 0px 70.6977px rgba(255, 255, 255, 0.12);
+    --gui-shadow-tooltip-content: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+      hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   }
   .dcspark {
     --gui-text-primary: #010a12;
