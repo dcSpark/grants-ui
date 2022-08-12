@@ -3,7 +3,7 @@ import { Tab } from "@headlessui/react";
 import classNames from "classnames";
 import { Maybe } from "../../graphql-types";
 
-const GrantProposalTab = ({
+const ProposalTab = ({
   description,
   statusTitle,
   statusDescription,
@@ -127,4 +127,4 @@ const GrantProposalTab = ({
   );
 };
 
-export default GrantProposalTab;
+export default ProposalTab;

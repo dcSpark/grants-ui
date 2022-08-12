@@ -2,7 +2,7 @@ import React from "react";
 import type { AirtableData } from "../../graphql-types";
 import { Disclosure, Transition } from "@headlessui/react";
 import classNames from "classnames";
-import GrantProposalTab from "../GrantProposalTab/GrantProposalTab";
+import ProposalTab from "../ProposalTab/ProposalTab";
 import LinkIcon from "../assets/LinkIcon";
 import ArrowDownIcon from "../assets/ArrowDownIcon";
 
@@ -136,7 +136,7 @@ const ProposalCard = (props: ProposalCardProps) => {
             leaveTo="gui-transform gui-scale-95 gui-opacity-0"
           >
             <Disclosure.Panel className="gui-border-t-[1px] gui-border-t-dashedBorder gui-border-dashed gui-ml-12 sm:gui-ml-16 md:gui-ml-[60px] gui-pt-5 gui-pb-6 gui-mr-4">
-              <GrantProposalTab
+              <ProposalTab
                 description={props.Description}
                 startDate={props.Started_on}
                 endDate={props.Completed_on}
