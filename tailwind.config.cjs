@@ -35,6 +35,17 @@ module.exports = {
         tooltipText: "var(--gui-filter-option-tooltip-text)",
         tooltipBg: "var(--gui-filter-option-tooltip-bg)",
       },
+      select: {
+        buttonBg: "var(--gui-select-button-bg)",
+        buttonText: "var(--gui-select-button-text)",
+        buttonIcon: "var(--gui-select-button-icon)",
+        boxBg: "var(--gui-select-box-bg)",
+        boxBgActive: "var(--gui-select-box-bgActive)",
+        boxBgHover: "var(--gui-select-box-bgHover)",
+        boxText: "var(--gui-select-box-text)",
+        boxTextActive: "var(--gui-select-box-textActive)",
+        boxTextHover: "var(--gui-select-box-textHover)",
+      },
     },
     boxShadow: {
       card: "var(--gui-shadow-card)",

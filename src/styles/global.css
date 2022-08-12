@@ -34,6 +34,16 @@
     --gui-shadow-filter-option: 0px 0px 70.6977px rgba(255, 255, 255, 0.12);
     --gui-shadow-tooltip-content: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
       hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+    /* select */
+    --gui-select-button-bg: #1f272e;
+    --gui-select-button-text: #ffffff;
+    --gui-select-button-icon: #ffffff;
+    --gui-select-box-bg: #1f272e;
+    --gui-select-box-bgActive: #2f3a45;
+    --gui-select-box-bgHover: #2f3a45;
+    --gui-select-box-text: #ffffff;
+    --gui-select-box-textActive: #ffffff;
+    --gui-select-box-textHover: #ffffff;
   }
   .dcspark {
     --gui-text-primary: #010a12;

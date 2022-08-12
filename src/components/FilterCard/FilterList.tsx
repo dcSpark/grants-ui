@@ -28,8 +28,6 @@ export default function FilterList({
   return (
     <RadioGroup as="div" value={value} onChange={onChange}>
       <RadioGroup.Label className="gui-sr-only">{groupLabel}</RadioGroup.Label>
-      {/* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */}
-
       <div
         className={classNames(
           "gui-grid gui-gap-3 gui-grid-col-1",
