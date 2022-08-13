@@ -41,6 +41,7 @@
       hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
 
     /* select */
+    --gui-select-label: #ffffff;
     --gui-select-button-bg: #1f272e;
     --gui-select-button-text: #ffffff;
     --gui-select-button-icon: #ffffff;

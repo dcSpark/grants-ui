@@ -37,6 +37,7 @@ module.exports = {
         tooltipIcon: "var(--gui-filter-option-tooltip-icon)",
       },
       select: {
+        label: "var(--gui-select-label)",
         buttonBg: "var(--gui-select-button-bg)",
         buttonText: "var(--gui-select-button-text)",
         buttonIcon: "var(--gui-select-button-icon)",

@@ -16,7 +16,7 @@ export default {
 } as ComponentMeta<typeof Select>;
 
 const options = [
-  { label: "All", value: "all" },
+  { label: "All", value: "all", disabled: true },
   { label: "Catalyst", value: "catalyst" },
   { label: "Urbit", value: "urbit" },
   { label: "Algorand", value: "algorand" },
@@ -30,4 +30,6 @@ const Template: ComponentStory<typeof Select> = (args: SelectProps) => {
 export const main = Template.bind({});
 main.args = {
   options,
+  label: "Filter by:",
+  hideLabel: false,
 };
