@@ -26,7 +26,7 @@ export default function FilterList({
   className,
 }: FilterListProps) {
   return (
-    <RadioGroup as="div" value={value} onChange={onChange}>
+    <RadioGroup value={value} onChange={onChange}>
       <RadioGroup.Label className="gui-sr-only">{groupLabel}</RadioGroup.Label>
       <div
         className={classNames(

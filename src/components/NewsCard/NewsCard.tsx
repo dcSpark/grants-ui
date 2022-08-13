@@ -23,7 +23,7 @@ const NewsCard = ({
   return (
     <div
       className={classNames(
-        "gui-flex gui-flex-col gui-space-y-6 md:gui-flex-row md:gui-space-x-6 gui-bg-newsCard-bg",
+        "gui-flex gui-flex-col gui-space-y-6 md:gui-space-y-0 md:gui-flex-row md:gui-space-x-6 gui-bg-newsCard-bg gui-items-center",
         className,
       )}
     >

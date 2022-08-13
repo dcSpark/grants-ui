@@ -8,12 +8,18 @@ export type SelectProps = {
   options: Option[];
   value: Option;
   onChange: React.Dispatch<React.SetStateAction<Option>>;
+  className?: string;
 };
 
-export default function Select({ value, onChange, options }: SelectProps) {
+export default function Select({
+  value,
+  onChange,
+  options,
+  className,
+}: SelectProps) {
   return (
     <Listbox value={value} onChange={onChange}>
-      <div className="gui-relative gui-mt-1">
+      <div className={classNames("gui-relative gui-mt-1", className)}>
         <Listbox.Button className="gui-relative gui-h-14 gui-w-full gui-cursor-default gui-rounded-full gui-bg-select-buttonBg gui-text-select-buttonText gui-py-4 gui-px-6 gui-pr-10 gui-text-left gui-shadow-md focus:gui-outline-none focus-visible:gui-border-accentColor focus-visible:gui-ring-2 focus-visible:gui-ring-accentColor focus-visible:gui-ring-opacity-75 focus-visible:gui-ring-offset-1 focus-visible:gui-ring-offset-accentColor sm:gui-text-sm">
           <span className="gui-block gui-font-medium gui-truncate">
             {value.label}
