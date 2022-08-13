@@ -1,13 +1,11 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import GrantProposalItem, {
-  GrantProposalItemProps,
-} from "./GrantsProposalItem";
+import ProposalCard, { ProposalCardProps } from "./ProposalCard";
 import { proposalData } from "../../data";
 
 export default {
   title: "Components/GrantsProposalItem",
-  component: GrantProposalItem,
+  component: ProposalCard,
   argTypes: {
     theme: {
       control: {
@@ -22,14 +20,20 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof GrantProposalItem>;
+} as ComponentMeta<typeof ProposalCard>;
 
-const Template: ComponentStory<typeof GrantProposalItem> = (
-  args: GrantProposalItemProps,
-) => <GrantProposalItem {...args} />;
+const Template: ComponentStory<typeof ProposalCard> = (
+  args: ProposalCardProps,
+) => <ProposalCard {...args} />;
 
-export const milkomedaTheme = Template.bind({});
-milkomedaTheme.args = {
+export const main = Template.bind({});
+main.args = {
+  theme: "milkomeda",
+  ...proposalData,
+};
+
+export const Milkomeda = Template.bind({});
+Milkomeda.args = {
   theme: "milkomeda",
   ...proposalData,
   Status: "Completed",
