@@ -34,6 +34,7 @@ module.exports = {
         bgSelected: "var(--gui-filter-option-bgSelected)",
         tooltipText: "var(--gui-filter-option-tooltip-text)",
         tooltipBg: "var(--gui-filter-option-tooltip-bg)",
+        tooltipIcon: "var(--gui-filter-option-tooltip-icon)",
       },
       select: {
         buttonBg: "var(--gui-select-button-bg)",
